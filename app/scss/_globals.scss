@@ -16,7 +16,7 @@ body {
   font-size: $font-med;
   font-weight: 300;
   line-height: 1.3;
-  min-height: 300vh;
+  overflow-x: hidden;
 
   @include breakpoint-up(large) {
     font-size: $font-med;
@@ -54,10 +54,10 @@ h2 {
 }
 
 p {
-      line-height: 1.5;
-      margin-bottom: 1.5rem;
-      color: $grayishBlue;
-    }
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+  color: $grayishBlue;
+}
 
 a,
 a:visited,
@@ -76,7 +76,7 @@ a:hover {
     padding-right: 1.5rem;
     padding-left: 1.5rem;
 
-    @include breakpoint-up(large){
+    @include breakpoint-up(large) {
       padding-top: 6rem;
       padding-bottom: 6rem;
     }
@@ -86,7 +86,7 @@ a:hover {
     padding-top: 4.375rem;
     padding-bottom: 4.375rem;
   }
-  
+
   &--px {
     padding-right: 1.5rem;
     padding-left: 1.5rem;
@@ -94,10 +94,9 @@ a:hover {
 
   &--pt {
     padding-top: 4.375rem;
-    @include breakpoint-up(large){
+    @include breakpoint-up(large) {
       padding-top: 6rem;
     }
-
   }
   &--pr {
     padding-right: 1.5rem;
@@ -105,10 +104,9 @@ a:hover {
 
   &--pb {
     padding-bottom: 4.375rem;
-    @include breakpoint-up(large){
+    @include breakpoint-up(large) {
       padding-bottom: 6rem;
     }
-
   }
   &--pl {
     padding-left: 1.5rem;
@@ -134,7 +132,10 @@ a:hover {
 }
 
 // Buttons
+button,
 .button {
+  position: relative;
+  display: inline-block;
   padding: 0.875rem 2.1875rem;
   background: linear-gradient(to right, $limeGreen, $brightCyan);
   border: 0;
@@ -144,9 +145,22 @@ a:hover {
   font-weight: 400;
   font-size: $font-sm;
   transition: opacity 300ms ease-in-out;
+  overflow: hidden;
 
-  &:hover {
-    opacity: 0.75;
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(255, 255, 255, 0.25);
+    opacity: 0;
+    transition: opacity 300ms ease-in-out;
+  }
+
+  &:hover::before {
+    opacity: 1;
   }
 }
 
