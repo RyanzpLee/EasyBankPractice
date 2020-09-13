@@ -1,0 +1,16 @@
+.header {
+
+    &__logo {
+
+        img {
+
+        }
+    }
+
+    &__menu {  // Mobile menu
+
+        > span {
+            display: block;
+        }
+    }
+}
