@@ -1,16 +1,120 @@
 .header {
+  // Hamburger open styles
+  &.open {
+    .header__toggle {
+      > span:first-child {
+        transform: rotate(45deg);
+      }
 
-    &__logo {
+      > span:nth-child(2) {
+        opacity: 0;
+      }
 
-        img {
-
-        }
+      > span:last-child {
+        transform: rotate(-45deg);
+      }
     }
+  }
 
-    &__menu {  // Mobile menu
+  .overlay {
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    background-image: linear-gradient($darkBlue, transparent);
+    transition: fade-out 300ms ease-in-out forwards;
+  }
 
-        > span {
-            display: block;
-        }
+  nav {
+    position: relative;
+    background-color: $white;
+    padding-top: 1.0625rem;
+    padding-bottom: 1.0625rem;
+  }
+
+  &__logo {
+    img {
+      width: 8.8125rem;
+      height: 1.375rem;
     }
+  }
+
+  &__toggle {
+    // Mobile menu toggle
+    > span {
+      display: block;
+      width: 1.625rem;
+      height: 0.125rem;
+      background-color: $darkBlue;
+      transition: all 300ms ease-in-out;
+      transform-origin: 3px 1px;
+
+      &:not(:last-child) {
+        margin-bottom: 0.3125rem;
+      }
+    }
+  }
+
+  &__menu {
+    position: absolute; // can't use margin auto to center
+    width: calc(100% - 3rem);
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 1.5rem;
+    background: $white;
+    padding: 1.625rem;
+    border-radius: 5px;
+
+    a {
+      display: block;
+      padding: 0.625rem;
+      color: $darkBlue;
+      text-align: center;
+    }
+  }
+
+  &__links {
+    a {
+      position: relative;
+      font-size: $font-sm;
+      color: $grayishBlue;
+      transition: color 300ms ease-in-out;
+
+      &:not(:last-child) {
+        margin-right: 2rem;
+      }
+
+      &::before {
+        content: "";
+        position: absolute;
+        display: block;
+        height: 5px;
+        left: 0;
+        right: 0;
+        bottom: -1.875rem;
+        background: linear-gradient(to right, $limeGreen, $brightCyan);
+        opacity: 0;
+        transition: opacity 300ms ease-in-out;
+      }
+
+      &:hover {
+        color: $darkBlue;
+
+        &::before {
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  &__cta {
+    font-size: $font-sm;
+    color: white;
+    transition: opacity 300ms ease-in-out;
+
+    &:hover {
+      opacity: 0.75;
+    }
+  }
 }
