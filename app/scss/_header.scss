@@ -24,6 +24,7 @@
     left: 0px;
     background-image: linear-gradient($darkBlue, transparent);
     transition: fade-out 300ms ease-in-out forwards;
+
   }
 
   nav {
@@ -105,16 +106,6 @@
           opacity: 1;
         }
       }
-    }
-  }
-
-  &__cta {
-    font-size: $font-sm;
-    color: white;
-    transition: opacity 300ms ease-in-out;
-
-    &:hover {
-      opacity: 0.75;
     }
   }
 }
