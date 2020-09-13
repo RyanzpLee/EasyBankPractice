@@ -1,5 +1,7 @@
 # Frontend Mentor EasyBank landing page practice
 
+[View website here](https://easybank.ryanzplee.com)
+
 ## Brief
 
 Build a landing page as similar as possible to the design pictures as possible with only html, css and javascript.
